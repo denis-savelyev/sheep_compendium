@@ -22,6 +22,13 @@ class FakeDB:
 
         del self.data[id]
 
+    def update_sheep(self, id: int, sheep: Sheep) -> Sheep:
+        if id not in self.data:
+            raise ValueError(f"Sheep with id {id} does not exist.")
+
+        self.data[id] = sheep
+        return sheep
+
 
 db = FakeDB()
 db.data = {
