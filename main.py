@@ -23,3 +23,12 @@ def delete_sheep(id: int):
         raise HTTPException(status_code=404, detail=f"Sheep with id {id} does not exist.")
 
     db.del_sheep(id)
+
+@app.put("/sheep/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def update_sheep(id: int, sheep: Sheep):
+    if id not in db.data:
+        db.app_sheep(id, sheep)
+        raise HTTPException(status_code=201, detail=f"Sheep with id {id} created.")
+
+    db.update_sheep(id, sheep)
+    return sheep
