@@ -28,7 +28,7 @@ def delete_sheep(id: int):
 def update_sheep(id: int, sheep: Sheep):
     if id not in db.data:
         db.add_sheep(id, sheep)
-        raise HTTPException(status_code=201, detail=f"Sheep with id {id} created.")
+        raise HTTPException(status_code=404, detail=f"Sheep with id {id} already exists.")
 
     db.update_sheep(id, sheep)
     return sheep
