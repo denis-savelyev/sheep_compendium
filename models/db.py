@@ -29,6 +29,9 @@ class FakeDB:
         self.data[id] = sheep
         return sheep
 
+    def read_all_sheep(self):
+        return self.data
+
 
 db = FakeDB()
 db.data = {
