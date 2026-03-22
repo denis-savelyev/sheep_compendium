@@ -66,3 +66,10 @@ def test_update_sheep():
     assert response.status_code == 204
 
     assert client.get("/sheep/5").json() == test_data
+
+def test_read_all_sheep():
+    response = client.get("/sheep/")
+
+    assert response.status_code == 200
+
+    assert len(response.json()) == 5
