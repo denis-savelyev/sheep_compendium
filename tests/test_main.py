@@ -59,6 +59,8 @@ def test_update_sheep():
         "sex": "ewe"
     }
 
+    client.post("/sheep/", json=test_data)
+
     response = client.put("/sheep/5", json=test_data)
 
     assert response.status_code == 204
