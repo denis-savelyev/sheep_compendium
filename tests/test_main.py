@@ -65,4 +65,4 @@ def test_update_sheep():
 
     assert response.status_code == 204
 
-    assert client.get("/sheep/6").json() == test_data
+    assert client.get("/sheep/5").json() == test_data
